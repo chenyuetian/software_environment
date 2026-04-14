@@ -105,7 +105,40 @@ The R part includes load/build R and R package praise. Choose either one of belo
         mamba install r-praise
         r-praise
 
+## Hands-on session 4: install from source
 
+This example compiles cmatrix from source
+
+We first start an interactive session, if the interactive session started in Hands-on sessions 2 or 3 has ended
+
+    srun --pty --partition=shared --nodes=1 --ntasks-per-node=1 --cpus-per-task=8 --mem=16G -A gue998 -t 01:30:00 --wait 0 /bin/bas
+
+1. Set up module environment.
+
+    module load cpu/0.15.4 gcc/10.2.0  ncurses/6.2
+
+2. Build from source
+
+       git clone https://github.com/abishekvashok/cmatrix
+       cd cmatrix
+       autoreconf -i
+       ./configure --prefix=$HOME/cmatrix/install LIBS="-lncursesw"
+       make
+       make install
+
+3. add the bin path to PATH
+
+       export PATH=$HOME/cmatrix/install/bin:$PATH
+
+4. run executable `cmatrix`
+
+       cmatrix
+
+
+   
+
+
+      
 
     
 
