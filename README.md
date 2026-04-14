@@ -104,7 +104,10 @@ The R part includes load/build R and R package praise. Choose either one of belo
         mamba create -n r-praise
         conda activate r-praise
         mamba install r-praise
-        r-praise
+        R # starts an R console. The next commands are running in the R console
+        install.packages("praise")
+        library(praise)
+        praise()
 
 ## Hands-on session 4: install from source
 
