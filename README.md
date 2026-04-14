@@ -91,8 +91,9 @@ The R part includes load/build R and R package praise. Choose either one of belo
         module reset
         module spider r
         module load cpu/0.15.4 gcc/9.2.0 r/4.0.2-openblas
-        R # starts an R console. The next two commands are running in the R console
+        R # starts an R console. The next commands are running in the R console
         install.packages("praise")
+        library(praise)
         praise()
     
 3. Create an R conda environment with miniforge3
