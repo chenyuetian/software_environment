@@ -8,7 +8,7 @@ To have a good starting point, make sure the default modules are loaded
 If needed, run `module reset` again to set the modules to default
 
 ## Hands-on session 1: working with modules
-We run a few module commands to search and load the system-wide installed MATLAB software
+We will run a few module commands to search and load the system-wide installed MATLAB software
 1. Search with the module string to show how to load a particular MATLAB
 
        module spider matlab
@@ -26,3 +26,96 @@ We run a few module commands to search and load the system-wide installed MATLAB
 4. Check if the path to the MATLAB executable is correctly set
 
        which matlab
+
+## Hands-on session 2: working with Singularity containers
+In the first part of this hands-on section, we will copy over a PyTorch example from the Expanse examples directory and run it. 
+1. Copy over a PyTorch example from the Expanse examples directory
+
+       cp -r /cm/shared/examples/sdsc/pytorch .
+       cd pytorch
+    
+2. Submit job with sbatch
+
+       sbatch -A gue998 run-pytorch-cpu-shared.sh
+           
+3. Check the output file
+
+In the second part of this hands-on section, we will build a singularity image on Expanse 
+1. First, start an interactive session
+
+       srun --pty --partition=shared --nodes=1 --ntasks-per-node=1 --cpus-per-task=8 --mem=16G -A gue998 -t 01:30:00 --wait 0 /bin/bash
+
+2. Load Singularity module
+
+       module reset
+       module load singularitypro
+
+3. Build an image lolcow.sif from `docker://godlovedc/lolcow`
+
+       singularity build lolcow.sif docker://godlovedc/lolcow
+
+4. Run this image with `singularity exec`
+
+       singularity exec lolcow.sif fortune
+       singularity exec lolcow.sif cowsay hello
+       singularity exec lolcow.sif sh -c 'fortune | cowsay'
+
+## Hands-on session 3: working with Python or R (pick one to work)
+We first start an interactive session, if the interactive session started in Hands-on session 2 has ended
+
+    srun --pty --partition=shared --nodes=1 --ntasks-per-node=1 --cpus-per-task=8 --mem=16G -A gue998 -t 01:30:00 --wait 0 /bin/bas
+
+The Python part includes installing Miniforge3 and pyjokes 
+
+1. Download and install miniforge3, make it available by alias
+
+        wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+        bash Miniforge3-Linux-x86_64.sh -b -s
+        alias miniforge='eval "$($HOME/miniforge3/bin/conda shell.bash hook)"'. 
+
+2. Create and activate a conda environment 
+
+        mamba create -n pyjokes
+        conda activate pyjokes
+   
+3. Install pyjokes and run it
+
+        mamba install pyjokes
+        pyjokes
+
+
+The R part includes load/build R and R package praise. Choose either one of below to add R to your user environment:
+
+1. Load the system R module and install it with `install.packages()` 
+
+        module reset
+        module spider r
+        module load cpu/0.15.4 gcc/9.2.0 r/4.0.2-openblas
+        R # starts an R console. The next two commands are running in the R console
+        install.packages("praise")
+        praise()
+    
+3. Create an R conda environment with miniforge3
+
+        wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+        bash Miniforge3-Linux-x86_64.sh -b -s
+        alias miniforge='eval "$($HOME/miniforge3/bin/conda shell.bash hook)"'.
+        mamba create -n r-praise
+        conda activate r-praise
+        mamba install r-praise
+        r-praise
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
