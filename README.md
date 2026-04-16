@@ -1,5 +1,5 @@
 ## Prerequisites
-As a starting point, please ensure that the default modules are loaded. To confirm, we an run the command `module list`. The output should be  
+As a starting point, please ensure that the default modules are loaded. To confirm, we can run the command `module list`. The output should be  
 
 >    Currently Loaded Modules:
 >    1) shared   2) cpu/0.17.3b (c)   3) slurm/expanse/23.02.7   4) sdsc/1.0   5) DefaultModules
@@ -42,7 +42,7 @@ In the first part of this hands-on section, we will copy over a PyTorch example 
 In the second part of this hands-on section, we will build a singularity image on Expanse 
 1. First, start an interactive session
 
-       srun --pty --partition=shared --nodes=1 --ntasks-per-node=1 --cpus-per-task=8 --mem=16G -A gue998 -t 01:30:00 --wait 0 /bin/bash
+       srun --pty --partition=shared --nodes=1 --ntasks-per-node=1 --cpus-per-task=8 --mem=16G -A sdp157 -t 01:30:00 --wait 0 /bin/bash
 
 2. Load Singularity module
 
