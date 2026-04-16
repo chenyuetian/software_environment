@@ -1,5 +1,5 @@
 ## Prerequisites
-As a starting point, please ensure that the default modules are loaded. To confirm, please run the command `module list`. The output should be  
+As a starting point, please ensure that the default modules are loaded. To confirm, we an run the command `module list`. The output should be  
 
 >    Currently Loaded Modules:
 >    1) shared   2) cpu/0.17.3b (c)   3) slurm/expanse/23.02.7   4) sdsc/1.0   5) DefaultModules
@@ -60,7 +60,7 @@ In the second part of this hands-on section, we will build a singularity image o
        singularity exec lolcow.sif sh -c 'fortune | cowsay'
 
 ## Hands-on session 3: working with Python or R (pick one to work)
-We first start an interactive session, if the interactive session started in Hands-on session 2 has ended
+We first start an interactive session, if the interactive session started in Hands-on session 2 has ended.
 
     srun --pty --partition=shared --nodes=1 --ntasks-per-node=1 --cpus-per-task=8 --mem=16G -A gue998 -t 01:30:00 --wait 0 /bin/bas
 
@@ -85,40 +85,40 @@ We first start an interactive session, if the interactive session started in Han
 
 - The R part includes load/build R and R package praise. Choose either one of below to add R to your user environment:
 
-1. Load the system R module and install it with `install.packages()` 
+    - Load the system R module and install it with `install.packages()` 
 
-        module reset
-        module spider r
-        module load cpu/0.15.4 gcc/9.2.0 r/4.0.2-openblas
-        R # starts an R console. The next commands are running in the R console
-        install.packages("praise")
-        library(praise)
-        praise()
+            module reset
+            module spider r
+            module load cpu/0.15.4 gcc/9.2.0 r/4.0.2-openblas
+            R # starts an R console. The next commands are running in the R console.
+            install.packages("praise")
+            library(praise)
+            praise()
     
-3. Create an R conda environment with miniforge3
+    - Create an R conda environment with miniforge3
 
-        wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
-        bash Miniforge3-Linux-x86_64.sh -b -s
-        alias miniforge='eval "$($HOME/miniforge3/bin/conda shell.bash hook)"'.
-        mamba create -n r-praise
-        conda activate r-praise
-        mamba install r-praise
-        R # starts an R console. The next commands are running in the R console
-        install.packages("praise")
-        library(praise)
-        praise()
+            wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+            bash Miniforge3-Linux-x86_64.sh -b -s
+            alias miniforge='eval "$($HOME/miniforge3/bin/conda shell.bash hook)"'.
+            mamba create -n r-praise
+            conda activate r-praise
+            mamba install r-praise
+            R # starts an R console. The next three commands are running in the R console.
+            install.packages("praise")
+            library(praise)
+            praise()
 
 ## Hands-on session 4: install from source
 
-This example compiles cmatrix from source
+This example compiles cmatrix from source.
 
-We first start an interactive session, if the interactive session started in Hands-on sessions 2 or 3 has ended
+We first start an interactive session, if the interactive session started in Hands-on sessions 2 or 3 has ended.
 
     srun --pty --partition=shared --nodes=1 --ntasks-per-node=1 --cpus-per-task=8 --mem=16G -A gue998 -t 01:30:00 --wait 0 /bin/bas
 
-1. Set up module environment.
+1. Set up module environment
 
-    module load cpu/0.15.4 gcc/10.2.0  ncurses/6.2
+       module load cpu/0.15.4 gcc/10.2.0  ncurses/6.2
 
 2. Build from source
 
@@ -129,11 +129,11 @@ We first start an interactive session, if the interactive session started in Han
        make
        make install
 
-3. add the bin path to PATH
+3. Add the bin path to PATH
 
        export PATH=$HOME/cmatrix/install/bin:$PATH
 
-4. run executable `cmatrix`
+4. Run executable `cmatrix`
 
        cmatrix
 
