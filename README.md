@@ -83,14 +83,17 @@ We first start an interactive session, if the interactive session started in Han
         pyjokes
 
 
-- The R part includes load/build R and R package praise. Choose either one of below to add R to your user environment:
+- The R part includes installing and running R package praise. Choose either one of below to add R to your user environment:
 
     - Load the system R module and install it with `install.packages()` 
 
             module reset
             module spider r
             module load cpu/0.15.4 gcc/9.2.0 r/4.0.2-openblas
-            R # starts an R console. The next commands are running in the R console.
+            R # starts an R console.
+
+      The next commands are running in the R console.
+
             install.packages("praise")
             library(praise)
             praise()
@@ -103,8 +106,10 @@ We first start an interactive session, if the interactive session started in Han
             mamba create -n r-praise
             conda activate r-praise
             mamba install r-praise
-            R # starts an R console. The next three commands are running in the R console.
-            install.packages("praise")
+            R # starts an R console.
+
+      The next two commands are running in the R console.
+
             library(praise)
             praise()
 
