@@ -1,11 +1,10 @@
 ## Prerequisites
-To have a good starting point, make sure the default modules are loaded
+As a starting point, please ensure that the default modules are loaded. To confirm, please run the command `module list`. The output should be  
 
-    module list
-    
-    Currently Loaded Modules:
-    1) shared   2) cpu/0.17.3b (c)   3) slurm/expanse/23.02.7   4) sdsc/1.0   5) DefaultModules
-If needed, run `module reset` again to set the modules to default
+>    Currently Loaded Modules:
+>    1) shared   2) cpu/0.17.3b (c)   3) slurm/expanse/23.02.7   4) sdsc/1.0   5) DefaultModules
+
+If needed, run `module reset` to set the modules to default.
 
 ## Hands-on session 1: working with modules
 We will run a few module commands to search and load the system-wide installed MATLAB software
@@ -65,7 +64,7 @@ We first start an interactive session, if the interactive session started in Han
 
     srun --pty --partition=shared --nodes=1 --ntasks-per-node=1 --cpus-per-task=8 --mem=16G -A gue998 -t 01:30:00 --wait 0 /bin/bas
 
-The Python part includes installing Miniforge3 and pyjokes 
+- The Python part includes installing Miniforge3 and pyjokes 
 
 1. Download and install miniforge3, make it available by alias
 
@@ -84,7 +83,7 @@ The Python part includes installing Miniforge3 and pyjokes
         pyjokes
 
 
-The R part includes load/build R and R package praise. Choose either one of below to add R to your user environment:
+- The R part includes load/build R and R package praise. Choose either one of below to add R to your user environment:
 
 1. Load the system R module and install it with `install.packages()` 
 
