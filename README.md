@@ -62,7 +62,7 @@ In the second part of this hands-on section, we will build a singularity image o
 ## Hands-on session 3: working with Python or R (pick one to work)
 We first start an interactive session, if the interactive session started in Hands-on session 2 has ended.
 
-    srun --pty --partition=shared --nodes=1 --ntasks-per-node=1 --cpus-per-task=8 --mem=16G -A gue998 -t 01:30:00 --wait 0 /bin/bas
+    srun --pty --partition=shared --nodes=1 --ntasks-per-node=1 --cpus-per-task=8 --mem=16G -A sdp157 -t 01:30:00 --wait 0 /bin/bas
 
 - The Python part includes installing Miniforge3 and pyjokes 
 
@@ -70,14 +70,15 @@ We first start an interactive session, if the interactive session started in Han
 
         wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
         bash Miniforge3-Linux-x86_64.sh -b -s
-        alias miniforge='eval "$($HOME/miniforge3/bin/conda shell.bash hook)"'. 
+        alias miniforge='eval "$($HOME/miniforge3/bin/conda shell.bash hook)"' # alias can be added to ~/.bashrc
+        miniforge 
 
-2. Create and activate a conda environment 
+3. Create and activate a conda environment 
 
         mamba create -n pyjokes
         conda activate pyjokes
    
-3. Install pyjokes and run it
+4. Install pyjokes and run it
 
         mamba install pyjokes
         pyjokes
@@ -102,7 +103,8 @@ We first start an interactive session, if the interactive session started in Han
 
             wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
             bash Miniforge3-Linux-x86_64.sh -b -s
-            alias miniforge='eval "$($HOME/miniforge3/bin/conda shell.bash hook)"'.
+            alias miniforge='eval "$($HOME/miniforge3/bin/conda shell.bash hook)"' # alias can be added to ~/.bashrc
+            miniforge
             mamba create -n r-praise
             conda activate r-praise
             mamba install r-praise
@@ -119,7 +121,7 @@ This example compiles cmatrix from source.
 
 We first start an interactive session, if the interactive session started in Hands-on sessions 2 or 3 has ended.
 
-    srun --pty --partition=shared --nodes=1 --ntasks-per-node=1 --cpus-per-task=8 --mem=16G -A gue998 -t 01:30:00 --wait 0 /bin/bas
+    srun --pty --partition=shared --nodes=1 --ntasks-per-node=1 --cpus-per-task=8 --mem=16G -A sdp157 -t 01:30:00 --wait 0 /bin/bas
 
 1. Set up module environment
 
