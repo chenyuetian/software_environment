@@ -91,7 +91,8 @@ We first start an interactive session, if the interactive session started in Han
             module reset
             module spider r
             module load cpu/0.15.4 gcc/9.2.0 r/4.0.2-openblas
-            R # starts an R console.
+            # start an R console
+            R 
 
       The next commands are running in the R console.
 
@@ -108,7 +109,8 @@ We first start an interactive session, if the interactive session started in Han
             mamba create -n r-praise
             conda activate r-praise
             mamba install r-praise
-            R # starts an R console.
+            # start an R console
+            R 
 
       The next two commands are running in the R console.
 
