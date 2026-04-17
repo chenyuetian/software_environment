@@ -97,12 +97,14 @@ We first start an interactive session, if the interactive session started in Han
             # start an R console
             R 
 
-      The next commands are running in the R console. Copy and paste a `praise()` output in Zoom chat.
+      The next commands are running in the R console. 
 
             install.packages("praise")
             library(praise)
             praise()
-    
+
+      Copy and paste a `praise()` output in Zoom chat.
+
     - Create an R conda environment with miniforge3
 
             wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
@@ -115,16 +117,18 @@ We first start an interactive session, if the interactive session started in Han
             # start an R console
             R 
 
-      The next two commands are running in the R console. Copy and paste a `praise()` output in Zoom chat.
+      The next two commands are running in the R console. 
 
             library(praise)
             praise()
+
+      Copy and paste a `praise()` output in Zoom chat.
 
 ## Hands-on session 4: install from source
 
 This example compiles cmatrix from source.
 
-We first start an interactive session, if the interactive session started in Hands-on sessions 2 or 3 has ended.
+We first start an interactive session, if the interactive session started in Hands-on session 2 or 3 has ended.
 
     srun --pty --partition=shared --nodes=1 --ntasks-per-node=1 --cpus-per-task=8 --mem=16G -A sdp157 -t 01:30:00 --wait 0 /bin/bas
 
