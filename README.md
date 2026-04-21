@@ -35,7 +35,7 @@ In the first part of this hands-on section, we will copy over a PyTorch example 
     
 2. Submit job with sbatch
 
-       sbatch -A sdp157 run-pytorch-cpu-shared.sh
+       sbatch -A sdp157 --cpus-per-task=8 --mem=16G run-pytorch-cpu-shared.sh
            
 3. Check the output file
 
