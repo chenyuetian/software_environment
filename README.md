@@ -39,7 +39,7 @@ In the first part of this hands-on section, we will copy over a PyTorch example 
            
 3. Check the output file
 
-In the second part of this hands-on section, we will build a singularity image on Expanse. 
+In the second part of this hands-on section, we will build a Singularity image on Expanse. 
 1. First, start an interactive session
 
        srun --pty --partition=shared --nodes=1 --ntasks-per-node=1 --cpus-per-task=8 --mem=16G -A sdp157 -t 01:30:00 --wait 0 /bin/bash
@@ -58,8 +58,6 @@ In the second part of this hands-on section, we will build a singularity image o
        singularity exec lolcow.sif fortune
        singularity exec lolcow.sif cowsay hello
        singularity exec lolcow.sif sh -c 'fortune | cowsay'
-
-5. Copy and paste a `fortune` output in Zoom chat
   
 ## Hands-on session 3: working with Python or R (pick one to work)
 We first start an interactive session, if the interactive session started in Hands-on session 2 has ended.
@@ -85,8 +83,6 @@ We first start an interactive session, if the interactive session started in Han
         mamba install pyjokes
         pyjokes
 
-5. Copy and paste a `pyjokes` output in Zoom chat
-
 - The R part includes installing and running R package praise. Choose either one of below to add R to your user environment:
 
     - Load the system R module and install it with `install.packages()` 
@@ -102,8 +98,6 @@ We first start an interactive session, if the interactive session started in Han
             install.packages("praise")
             library(praise)
             praise()
-
-      Copy and paste a `praise()` output in Zoom chat.
 
     - Create an R conda environment with miniforge3
 
@@ -121,8 +115,6 @@ We first start an interactive session, if the interactive session started in Han
 
             library(praise)
             praise()
-
-      Copy and paste a `praise()` output in Zoom chat.
 
 ## Hands-on session 4: install from source
 
