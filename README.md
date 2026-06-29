@@ -35,14 +35,14 @@ In the first part of this hands-on section, we will copy over a PyTorch example 
     
 2. Submit job with sbatch
 
-       sbatch -A sdp157 --cpus-per-task=8 --mem=16G run-pytorch-cpu-shared.sh
+       sbatch -A sdp173 --cpus-per-task=8 --mem=16G run-pytorch-cpu-shared.sh
            
 3. Check the output file
 
 In the second part of this hands-on section, we will build a Singularity image on Expanse. 
 1. First, start an interactive session
 
-       srun --pty --partition=shared --nodes=1 --ntasks-per-node=1 --cpus-per-task=8 --mem=16G -A sdp157 -t 01:30:00 --wait 0 /bin/bash
+       srun --pty --partition=shared --nodes=1 --ntasks-per-node=1 --cpus-per-task=8 --mem=16G -A sdp173 -t 01:30:00 --wait 0 /bin/bash
 
 2. Load Singularity module
 
@@ -62,7 +62,7 @@ In the second part of this hands-on section, we will build a Singularity image o
 ## Hands-on session 3: working with Python or R (pick one to work)
 We first start an interactive session, if the interactive session started in Hands-on session 2 has ended.
 
-    srun --pty --partition=shared --nodes=1 --ntasks-per-node=1 --cpus-per-task=8 --mem=16G -A sdp157 -t 01:30:00 --wait 0 /bin/bas
+    srun --pty --partition=shared --nodes=1 --ntasks-per-node=1 --cpus-per-task=8 --mem=16G -A sdp173 -t 01:30:00 --wait 0 /bin/bas
 
 - The Python part includes installing Miniforge3 and pyjokes 
 
@@ -122,7 +122,7 @@ This example compiles cmatrix from source.
 
 We first start an interactive session, if the interactive session started in Hands-on session 2 or 3 has ended.
 
-    srun --pty --partition=shared --nodes=1 --ntasks-per-node=1 --cpus-per-task=8 --mem=16G -A sdp157 -t 01:30:00 --wait 0 /bin/bas
+    srun --pty --partition=shared --nodes=1 --ntasks-per-node=1 --cpus-per-task=8 --mem=16G -A sdp173 -t 01:30:00 --wait 0 /bin/bas
 
 1. Set up module environment
 
