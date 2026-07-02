@@ -14,11 +14,11 @@ We will run a few module commands to search and load the system-wide installed M
        module spider matlab/2022b
        module spider matlab/2022b/lefe4oq
 
-2. Load MATLAB 2022b from the **GPU** software stack
+2. Load MATLAB 2022b from the **CPU** software stack
 
        module reset
        module list
-       module load gpu matlab/2022b    # same as module load gpu/0.17.3b matlab/2022b/nmbr5dd since gpu/0.17.3b is the default GPU stack
+       module load cpu matlab/2022b    # same as module load cpu/0.17.3b matlab/2022b/lefe4oq since cpu/0.17.3b is the default CPU stack
        module list
        module show matlab/2022b
    
